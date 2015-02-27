@@ -200,15 +200,62 @@
                     }
                     
                     $('#titles').empty();
-                    $.each(titles, function(){
-                        $('#titles').append('<input name="' + this + '" onclick="changeMarkers(this)" type="checkbox"> ' + this + '<br>');
+                    var col1, col2, col3, val;
+                    val = Math.floor(titles.length/3);
+                    col1 = titles.slice(0, val);
+                    col2 = titles.slice(val, val*2);
+                    col3 = titles.slice(val*2, titles.length);
+                    
+                    
+                    $.each(col1, function() {
+                        $('#titles1').append('<input name="' + this + '" onclick="changeMarkers(this)" type="checkbox"> ' + this + '<br>');
                     });
+       
+                    $.each(col2, function() {
+                        $('#titles2').append('<input name="' + this + '" onclick="changeMarkers(this)" type="checkbox"> ' + this + '<br>');
+                    });
+
+                    $.each(col3, function() {
+                        $('#titles3').append('<input name="' + this + '" onclick="changeMarkers(this)" type="checkbox"> ' + this + '<br>');
+                    });
+
+                    //$.each(titles, function(){
+                      //  $('#titles').append('<input name="' + this + '" onclick="changeMarkers(this)" type="checkbox"> ' + this + '<br>');
+                    //});
                 });
             });
         </script>
     </head>
     <body>
         <div class="container">
+            <div class="row">
+                <div id="table-of-contents">
+                    <div id="titles" style="color: #ddd">
+                        <div class="text-center">Loading</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="col1" class="col-xs-2">
+                        <div id="titles1" style="color: #ddd">
+                            
+                        </div>
+                    </div>
+                    <div id="col2" class="col-xs-2">
+                        <div id="titles2" style="color: #ddd">
+                            
+                        </div>
+                    </div>
+                    <div id="col3" class="col-xs-2">
+                        <div id="titles3" style="color: #ddd">
+                            
+                        </div>
+                    </div> 
+                    
+                </div>
+                
+            </div>
             <div class="row">
                 <div class="col-xs-5">
                     <div id="map-container">
@@ -222,16 +269,6 @@
                             </div>
                         </div>
                         <div id="map-canvas"></div>
-                    </div>
-                </div>
-                <div class="col-xs-4 col-xs-offset-1">
-                    <div id="table-of-contents">
-                        <div id="titles" style="color: #ddd">
-                            <div class="text-center">Loading</div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 0%;"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
