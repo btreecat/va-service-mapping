@@ -4,7 +4,8 @@
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <style type="text/css">
             #map-canvas { 
-                height: 400px; 
+                height: 420px;
+                width: 530px; 
                 margin-top: 10px;
             }
             
@@ -73,8 +74,8 @@
             }
             
             function changeMarkers(checkbox) {
-                console.log(checkbox.name);
-                console.log(checkbox.checked);
+<!--                console.log(checkbox.name);-->
+<!--                console.log(checkbox.checked);-->
                 
                 var sheet;
                 for(var i=0; i<contents.length; i++) {
@@ -111,7 +112,7 @@
                         
                         var infoWindow = new google.maps.InfoWindow({
                             content: infoWindowContent,
-                            maxWidth: 550
+                            maxWidth: 500
                         });
                         
                         google.maps.event.addListener(this.marker, 'click', function() {
@@ -201,10 +202,11 @@
                     
                     $('#titles').empty();
                     var col1, col2, col3, val;
-                    val = Math.floor(titles.length/3);
+                    val = Math.floor(titles.length/2);
                     col1 = titles.slice(0, val);
-                    col2 = titles.slice(val, val*2);
-                    col3 = titles.slice(val*2, titles.length);
+                    col2 = titles.slice(val, titles.length);
+<!--                    col2 = titles.slice(val, val*2);-->
+<!--                    col3 = titles.slice(val*2, titles.length);-->
                     
                     
                     $.each(col1, function() {
@@ -237,27 +239,27 @@
                         </div>
                     </div>
                     
-                    <div id="col1" class="col-xs-2">
+                    <div id="col1" class="col-xs-3">
                         <div id="titles1" style="color: #ddd">
                             
                         </div>
                     </div>
-                    <div id="col2" class="col-xs-2">
+                    <div id="col2" class="col-xs-3">
                         <div id="titles2" style="color: #ddd">
                             
                         </div>
                     </div>
-                    <div id="col3" class="col-xs-2">
-                        <div id="titles3" style="color: #ddd">
-                            
-                        </div>
-                    </div> 
+<!--                    <div id="col3" class="col-xs-2">-->
+<!--                        <div id="titles3" style="color: #ddd">-->
+<!--                            -->
+<!--                        </div>-->
+<!--                    </div> -->
                     
                 </div>
                 
             </div>
             <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                     <div id="map-container">
                         <div>
                             Search for a location: 
